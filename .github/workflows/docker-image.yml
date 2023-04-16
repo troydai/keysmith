@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.io/troydai/keysmith:$GITHUB_REF_NAME
+      run: docker build . --file Dockerfile --tag docker.io/troydai/keysmith:$(date +%s)
