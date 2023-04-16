@@ -1,10 +1,6 @@
-# The keysmith
+# Execute the keysmith image locally
 
-A docker image assist creating and managing certificates and keys
-
-## Examples
-
-### Execute the keysmith image locally
+## Usage
 
 At the root of this repository
 
