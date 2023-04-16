@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: keysmith-example
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: keysmith-example-pod
+  namespace: keysmith-example
+spec:
+  initContainers:
+  - name: keysmith
+    image: ghcr.io/troydai/keysmith:latest
+    imagePullPolicy: Always
+    env:
+    - name: OUTPUT_DIR
+      value: /mnt/output
+    - name: CN_SUBJECT
+      value: "/C=US/ST=WA/L=Redmond/O=TDFund/OU=KeySmith2/CN=keysmith.troydai.cc"
+    volumeMounts:
+    - name: keysmith-output
+      mountPath: /mnt/output
+  containers:
+  - name: main
+    image: alpine:3.17
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: keysmith-output
+      mountPath: /tmp
+    command: ["/bin/sh", "-c", "--"]
+    args: ["while true; do sleep 10; done;"]
+  volumes:
+  - name: keysmith-output
+    emptyDir: {}
