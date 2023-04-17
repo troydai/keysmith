@@ -14,8 +14,8 @@ Once a container of this image starts, it runs a one-off operation and places th
 ## Configuration
 
 You can configure the operation through two environment variables:
-- OUTPUT_DIR: the directory to place the output files, usually a mounted directory allowing users to extract the certificate and private key.
-- CN_SUBJECT: the subject of the X.509 certificate to generate.
+- `OUTPUT_DIR`: the directory to place the output files, usually a mounted directory allowing users to extract the certificate and private key.
+- `CN_SUBJECT`: the subject of the X.509 certificate to generate.
 
 ## Examples
 
